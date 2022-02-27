@@ -9,11 +9,11 @@ import Trap from '../Trap';
 const Board = () => {
     return (
         <div>
-            <MiniDemon />
-            <Demon />
-            <Hero />
             <Chest />
             <Trap />
+            <Hero />
+            <MiniDemon />
+            <Demon />
             <img src='./assets/tileset.gif' alt='map' width={GAME_SIZE} height={GAME_SIZE} />
         </div>
     );

@@ -1,6 +1,10 @@
 import React from "react";
+
 import './index.css'
-import { HEAD_OFFSET, TILE_SIZE } from "../../settings/constants";
+import useHeroMoviment from "../../hooks/useHeroMoviment";
+import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../settings/constants";
+
+
 
 const initialPosition = {
     x: 1,
@@ -8,7 +12,8 @@ const initialPosition = {
 }
 
 const Hero = () => {
-const [positionState, setPositionState] = React.useState(initialPosition);    
+    const {position, direction} = useHeroMoviment(initialPosition);
+
 
     return (
         <div 
@@ -19,10 +24,12 @@ const [positionState, setPositionState] = React.useState(initialPosition);
                 backgroundRepeat: 'no-repeat',
                 //backgroundSize: TILE_SIZE * 3.95833333,
                 backgroundPosition: `0px -${TILE_SIZE - HEAD_OFFSET}px`,
-                animation: 'hero-animation 1s steps(4) infinite',
+                animation: 'hero-animation 0.4s steps(4) infinite',
+                transform: `scaleX(${ direction === EDirection.right ? 1 : -1})`,
                 position: 'absolute',
-                left: TILE_SIZE * positionState.x,
-                bottom: TILE_SIZE * positionState.y,
+                left: TILE_SIZE * position.x,
+                bottom: TILE_SIZE * position.y,
+                transition: '0.2s'
 
             }}
         />
