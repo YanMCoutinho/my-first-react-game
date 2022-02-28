@@ -4,16 +4,8 @@ import './index.css'
 import useHeroMoviment from "../../hooks/useHeroMoviment";
 import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../settings/constants";
 
-
-
-const initialPosition = {
-    x: 1,
-    y: 2
-}
-
-const Hero = () => {
-    const {position, direction} = useHeroMoviment(initialPosition);
-
+const Hero = (props) => {
+    const {position, direction} = useHeroMoviment(props.position);
 
     return (
         <div 
@@ -28,8 +20,9 @@ const Hero = () => {
                 transform: `scaleX(${ direction === EDirection.right ? 1 : -1})`,
                 position: 'absolute',
                 left: TILE_SIZE * position.x,
-                bottom: TILE_SIZE * position.y,
-                transition: '0.2s'
+                top: TILE_SIZE * position.y - HEAD_OFFSET,
+                transition: '0.2s',
+                zIndex: 1
 
             }}
         />

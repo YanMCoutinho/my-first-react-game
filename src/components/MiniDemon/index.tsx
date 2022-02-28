@@ -3,8 +3,12 @@ import './index.css'
 import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../settings/constants";
 import useEnemyMoviment from "../../hooks/useEnemyMoviment";
 
-const MiniDemon = () => {
-    const {position, direction} = useEnemyMoviment({x: 10, y: 5});
+interface IProps {
+    position: {x: number, y: number}
+}
+
+const MiniDemon = (props: IProps) => {
+    const {position, direction} = useEnemyMoviment(props.position);
 
     return (
         <div 
@@ -19,8 +23,9 @@ const MiniDemon = () => {
                 transform: `scaleX(${ direction === EDirection.right ? 1 : -1})`,
                 position: 'absolute',
                 left: TILE_SIZE * position.x,
-                bottom: TILE_SIZE * position.y,
-                transition: '0.1s'
+                top: TILE_SIZE * position.y - HEAD_OFFSET,
+                transition: '0.1s',
+                zIndex: 2
             }}
         />
     );

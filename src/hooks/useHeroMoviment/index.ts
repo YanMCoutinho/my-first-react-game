@@ -21,9 +21,11 @@ function useHeroMoviment(initialPosition) {
             pressedKey = similarKeys[pressedKey]
         }
 
-        const nextMoviment = handleNextMoviment(pressedKey, positionState)
-        handleNextDirection(pressedKey, setDirectionState)
-        setPositionState(nextMoviment)
+        if (pressedKey.indexOf(`Arrow`) !== -1) {
+            const nextMoviment = handleNextMoviment(pressedKey, positionState)
+            handleNextDirection(pressedKey, setDirectionState)
+            setPositionState(nextMoviment)   
+        }
     })
 
     return {

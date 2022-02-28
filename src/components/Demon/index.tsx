@@ -3,8 +3,8 @@ import './index.css'
 import { DEMON_TILE_SIZE, EDirection, TILE_SIZE } from "../../settings/constants";
 import useEnemyMoviment from "../../hooks/useEnemyMoviment";
 
-const Demon = () => {
-    const {position, direction} = useEnemyMoviment({x: 5, y: 5});
+const Demon = (props) => {
+    const {position, direction} = useEnemyMoviment(props.position);
 
     return (
         <div 
@@ -18,8 +18,9 @@ const Demon = () => {
                 transform: `scaleX(${ direction === EDirection.right ? 1 : -1})`,
                 position: 'absolute',
                 left: TILE_SIZE * position.x,
-                bottom: TILE_SIZE * position.y,
-                transition: '0.4s'
+                top: TILE_SIZE * position.y,
+                transition: '0.4s',
+                zIndex: 2,
             }}
         />
     );
