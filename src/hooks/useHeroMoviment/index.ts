@@ -1,9 +1,13 @@
 import useEventListener from "@use-it/event-listener";
 import React from "react";
-import { handleNextDirection, handleNextMoviment } from "../../contexts/canvas/helpers";
-import { EDirection } from "../../settings/constants";
+import { CanvasContext } from "../../contexts/canvas";
+import { handleNextDirection } from "../../contexts/canvas/helpers";
+import { ChestsContext } from "../../contexts/chests";
+import { EDirection, EWalker } from "../../settings/constants";
 
 function useHeroMoviment(initialPosition) {
+    const canvasContext = React.useContext(CanvasContext)
+    const chestsContext = React.useContext(ChestsContext)
     const [positionState, setPositionState] = React.useState(initialPosition);
     const [directionState, setDirectionState] = React.useState(EDirection.right);    
 
@@ -22,9 +26,21 @@ function useHeroMoviment(initialPosition) {
         }
 
         if (pressedKey.indexOf(`Arrow`) !== -1) {
-            const nextMoviment = handleNextMoviment(pressedKey, positionState)
-            handleNextDirection(pressedKey, setDirectionState)
-            setPositionState(nextMoviment)   
+
+            const [infoNextPosition, nextPosition] = canvasContext.setCanvas(pressedKey, positionState, EWalker.hero);
+
+            if (infoNextPosition.valid) {
+                handleNextDirection(pressedKey, setDirectionState)
+                setPositionState(nextPosition)
+
+                if (infoNextPosition.dead) {
+                    console.log('ai ai')
+                }
+
+                if (infoNextPosition.chest) {
+                    chestsContext.setOpenedChests();
+                }
+            }
         }
     })
 

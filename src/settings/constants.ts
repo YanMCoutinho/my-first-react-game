@@ -10,3 +10,19 @@ export enum EDirection {
     left = 'ArrowLeft',
     down = 'ArrowDown'
 }
+
+export enum EWalker {
+    enemy = 0,
+    hero = 1,    
+}
+
+export enum ECanvas {
+    floor = 0,
+    wall = 1,
+    door = 2,
+    trap = 3,
+    miniDemon = 4,
+    demon = 5,
+    chest = 6,
+    hero = 7,
+}
