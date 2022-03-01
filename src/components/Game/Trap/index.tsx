@@ -1,6 +1,6 @@
 import React from "react";
-import './index.css'
-import { TILE_SIZE } from "../../settings/constants";
+import './Trap.css'
+import { TILE_SIZE } from "../../../settings/constants";
 
 const Trap = (props) => {
     const {x, y} = props.position

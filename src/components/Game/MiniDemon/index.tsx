@@ -1,10 +1,11 @@
 import React from "react";
-import './index.css'
-import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../settings/constants";
-import useEnemyMoviment from "../../hooks/useEnemyMoviment";
+import './MiniDemon.css'
+import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../../settings/constants";
+import useEnemyMoviment from "../../../hooks/useEnemyMoviment";
+import { IPosition } from "../../../contexts/canvas/types";
 
 interface IProps {
-    position: {x: number, y: number}
+    position: IPosition;
 }
 
 const MiniDemon = (props: IProps) => {

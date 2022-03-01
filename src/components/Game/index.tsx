@@ -1,18 +1,16 @@
-import React from "react";
-import CanvasProvider from "../../contexts/canvas";
-import ChestsProvider from "../../contexts/chests";
+import { useContext } from "react";
+import { CanvasContext } from "../../contexts/canvas";
 
-import Board from "../Board";
-import Debugger from "../Debugger";
+import Board from "./Board";
+import Debugger from "./Debugger";
 
 function Game() {
+    const { canvas } = useContext(CanvasContext)
+
     return (
-        <CanvasProvider>
-          <ChestsProvider>
-            <Debugger />
-            <Board />
-          </ChestsProvider>
-        </CanvasProvider>
+        <Debugger canvas={canvas}>
+          <Board canvas={canvas} />
+        </Debugger>
     )
 }
 

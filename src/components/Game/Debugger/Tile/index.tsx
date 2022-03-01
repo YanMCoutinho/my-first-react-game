@@ -1,14 +1,15 @@
 import React from "react";
-import { ECanvas, TILE_SIZE } from "../../../settings/constants";
+import { ECanvas, IPosition } from "../../../../contexts/canvas/types";
+import { TILE_SIZE } from "../../../../settings/constants";
 
 interface IProps {
-    position: {x: number, y:number},
-    text: number
+    tileId: ECanvas;
+    position: IPosition;
 }
 
 function Tile(props: IProps) {
-    function getTileColor(type: number) {
-        switch(type) {
+    function getTileColor() {
+        switch(props.tileId) {
             case ECanvas.floor:
                 return `darkgray`;
 
@@ -32,7 +33,7 @@ function Tile(props: IProps) {
                 return `magenta`;
         }
     }
-    const color = getTileColor(props.text);
+    const color = getTileColor();
 
     return (
         <div style={{
@@ -48,7 +49,7 @@ function Tile(props: IProps) {
             zIndex: 4,
 
         }}>
-            {props.text}
+            {props.tileId}
         </div>
     )
 }

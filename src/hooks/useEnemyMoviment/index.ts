@@ -1,30 +1,38 @@
 import useInterval from "@use-it/interval";
-import React from "react";
+import { useContext, useState } from "react";
 import { CanvasContext } from "../../contexts/canvas";
-import { handleNextDirection, handleNextMoviment as handleNextPosition, validNextPosition } from "../../contexts/canvas/helpers";
+import { handleNextDirection  } from "../../contexts/canvas/helpers";
+import { IPosition } from "../../contexts/canvas/types";
+import { GameStatusContext } from "../../contexts/gameStatus";
 import { EDirection, EWalker } from "../../settings/constants";
 
-function useEnemyMoviment(initialPosition) {
-    const canvasContext = React.useContext(CanvasContext)
-    const [positionState, setPositionState] = React.useState(initialPosition);
-    const [directionState, setDirectionState] = React.useState(EDirection.right);    
+function useEnemyMoviment(initialPosition: IPosition) {
+    const { setCanvas } = useContext(CanvasContext);
+    const { setIsDead } = useContext(GameStatusContext)
 
-    useInterval(function move() {
-        var random = Math.floor(Math.random() * 3);
-        var positionArray = Object.values(EDirection);
-        const randomPosition = positionArray[random];
+    const [position, setPosition] = useState<IPosition>(initialPosition);
+    const [direction, setDirection] = useState<EDirection>(EDirection.left)
 
-        const [infoNextPosition, nextPosition] = canvasContext.setCanvas(randomPosition, positionState, EWalker.enemy);
+    useInterval(move, 500)
 
-        if (infoNextPosition.valid) {        
-            setPositionState(nextPosition)
-            handleNextDirection(randomPosition, setDirectionState)
+    function move() {
+        const directions = Object.values(EDirection);
+        const random = Math.floor(Math.random() * directions.length)
+        const moveDirection = directions[random]
+
+        const moviment = setCanvas(moveDirection, position, EWalker.enemy);
+        setPosition(moviment.position)
+
+        handleNextDirection(moveDirection, setDirection)
+
+        if (moviment.consequences.dead) {
+            setIsDead();
         }
-    }, 2000);
+    }
 
     return {
-        position: positionState,
-        direction: directionState
+        position: position,
+        direction: direction
     }
 }
 

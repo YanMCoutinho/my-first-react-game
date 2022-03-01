@@ -1,44 +1,42 @@
-import React from "react";
-import { ECanvas, EWalker } from "../../settings/constants";
+import { createContext, PropsWithChildren, useState } from "react";
+import { EDirection, EWalker } from "../../settings/constants";
 
-import { canvas, handleNextMoviment, validNextPosition } from "./helpers";
+import { checkNextMoveIsValid, handleWalk, initialCanvas } from "./helpers";
+import { ECanvas, ICanvasContext, IPosition, IWalker } from "./types";
 
-interface IProps {
-    children: React.ReactNode;
-}
 
-export const CanvasContext = React.createContext({
+export const CanvasContext = createContext<ICanvasContext>({
     canvas: [],
-    setCanvas: (pressedKey: String, position, walker: EWalker) => null
-})
+    setCanvas: () => ({ position: {x: 0, y:0}, consequences: {valid: true, dead: false, chest:  false, door: false} }),
+});
 
-export default function CanvasProvider(props: IProps): JSX.Element {
-    const [canvasState, setCanvasState] = React.useState({
-        canvas: canvas,
-        setCanvas: (direction: String, position, walker: EWalker) => {
-            const nextPosition = handleNextMoviment(direction, position)
-            const infoNextPosition = validNextPosition(nextPosition, canvas, walker)
+export default function CanvasProvider(props: PropsWithChildren<{}>) {
+    const [canvasState, setCanvasState] = useState<ICanvasContext>({
+        canvas: initialCanvas,
+        setCanvas: (direction, position, walker) => {
+            const nextPosition = handleWalk(direction, position)
+            const nextMove = checkNextMoveIsValid(canvasState.canvas, nextPosition, walker);
 
-            if (infoNextPosition.valid) {
-                setCanvasState((prevState) => {
-                    const newCanvas = Object.assign([], prevState.canvas);
-                    const currentValue = newCanvas[position.y][position.x]
+            if (nextMove.valid) {
+                setCanvasState(prevState => {
+                    const newCanvas = [...prevState.canvas];
+                    const currentValue = newCanvas[position.y][position.x] as ECanvas;
 
                     newCanvas[position.y][position.x] = ECanvas.floor;
                     newCanvas[nextPosition.y][nextPosition.x] = currentValue;
 
                     return {
-                        canvas: newCanvas,
-                        setCanvas: prevState.setCanvas
-                    }
-                })
+                        ...prevState,
+                        canvas: newCanvas
+                    };
+                });
             }
 
-            return [
-                infoNextPosition,
-                nextPosition,   
-            ]
-        }
+            return {
+                consequences: nextMove,
+                position: nextMove.valid ? nextPosition : position,
+            };
+        },
     });
 
     return (

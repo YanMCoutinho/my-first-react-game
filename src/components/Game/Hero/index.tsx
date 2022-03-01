@@ -1,11 +1,24 @@
-import React from "react";
+import useHeroMoviment from "../../../hooks/useHeroMoviment";
+import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../../settings/constants";
+import { IPosition } from "../../../contexts/canvas/types";
 
-import './index.css'
-import useHeroMoviment from "../../hooks/useHeroMoviment";
-import { EDirection, HEAD_OFFSET, TILE_SIZE } from "../../settings/constants";
+interface IProps {
+    position: IPosition;
+}
 
-const Hero = (props) => {
+
+
+const Hero = (props: IProps) => {
     const {position, direction} = useHeroMoviment(props.position);
+    // const { setIsWinner, setIsDead } = useContext(GameStatusContext);
+    // const { openedChests, totalChests } = useContext(ChestsContext)
+
+    // useEffect(() => {
+    //     if (consequences.dead) {setIsDead()}   
+    //     if (totalChests === openedChests.total && consequences.door ) {
+    //         setIsWinner();
+    //     }
+    // }, [])
 
     return (
         <div 

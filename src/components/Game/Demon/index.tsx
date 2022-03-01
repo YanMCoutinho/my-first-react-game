@@ -1,9 +1,14 @@
 import React from "react";
-import './index.css'
-import { DEMON_TILE_SIZE, EDirection, TILE_SIZE } from "../../settings/constants";
-import useEnemyMoviment from "../../hooks/useEnemyMoviment";
+import { IPosition } from "../../../contexts/canvas/types";
+import useEnemyMoviment from "../../../hooks/useEnemyMoviment";
+import { DEMON_TILE_SIZE, EDirection, TILE_SIZE } from "../../../settings/constants";
+import './Demon.css'
 
-const Demon = (props) => {
+interface IProps {
+    position: IPosition;
+}
+
+const Demon = (props: IProps) => {
     const {position, direction} = useEnemyMoviment(props.position);
 
     return (
@@ -13,6 +18,7 @@ const Demon = (props) => {
                 width: DEMON_TILE_SIZE,
                 backgroundImage:"url('./assets/DEMON.png')",
                 backgroundRepeat: 'no-repeat',
+                backgroundPosition: `0px 0px`,
                 //backgroundSize: TILE_SIZE * 3.95833333,
                 animation: 'demon-animation 1.1s steps(4) infinite',
                 transform: `scaleX(${ direction === EDirection.right ? 1 : -1})`,
