@@ -28,7 +28,7 @@ function getInitialCanvas(): canvasArray {
         [WL, FL, FL, FL, FL,   FL, FL, TR, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
 
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, TR, FL, DE,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+        [WL, FL, FL, FL, FL,   FL, FL, TR, FL, MD,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
         [WL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   TR, CH, FL, FL, WL],

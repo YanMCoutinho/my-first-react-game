@@ -55,7 +55,9 @@ const Board = (props: PropsWithChildren<IProps>) => {
     return (
         
         <div>
-            <img src='./assets/tileset.gif' alt='map' width={GAME_SIZE} height={GAME_SIZE} />
+            <img src='./assets/tileset.gif' alt='map' width={GAME_SIZE} height={GAME_SIZE} style={{
+                borderImageRepeat: 'stretch',
+            }} />
             
             <Door />
             <GameStatus />

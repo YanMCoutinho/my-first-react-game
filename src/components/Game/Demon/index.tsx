@@ -19,7 +19,7 @@ const Demon = (props: IProps) => {
                 backgroundImage:"url('./assets/DEMON.png')",
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: `0px 0px`,
-                //backgroundSize: TILE_SIZE * 3.95833333,
+                backgroundSize: `auto ${TILE_SIZE * 4}`,
                 animation: 'demon-animation 1.1s steps(4) infinite',
                 transform: `scaleX(${ direction === EDirection.right ? 1 : -1})`,
                 position: 'absolute',

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { IPosition } from "../../../contexts/canvas/types";
 import { ChestsContext } from "../../../contexts/chests";
 import { TILE_SIZE } from "../../../settings/constants";
@@ -26,7 +26,7 @@ const Chest = (props: IProps) => {
                 backgroundImage:"url('./assets/CHEST.png')",
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: `0px 0px`,
-                //backgroundSize: TILE_SIZE * 3.95833333,
+                backgroundSize: `auto ${TILE_SIZE * 3}`,
                 animation: animation,
                 position: 'absolute',
                 left: TILE_SIZE * x,

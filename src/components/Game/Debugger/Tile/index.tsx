@@ -42,9 +42,9 @@ function Tile(props: IProps) {
             position: `absolute`,
             left: TILE_SIZE * props.position.x,
             top: TILE_SIZE * props.position.y,
-            border: `3px solid ${color}`,
+            border: `${TILE_SIZE * 0.0625}px solid ${color}`,
             color: color,
-            fontSize: 32,
+            fontSize: TILE_SIZE * 0.666666667,
             textAlign: `center`,
             zIndex: 4,
 

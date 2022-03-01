@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
+import ReactAudioPlayer from "react-audio-player";
 import { GameStatusContext } from "../../../../contexts/gameStatus";
+import { TILE_SIZE } from "../../../../settings/constants";
 
 function GameStatus() {
     const { dead, winner } = useContext(GameStatusContext);
@@ -23,14 +25,15 @@ function GameStatus() {
             position: 'absolute',
             top: 0,
             left: 0,
-            marginTop: 5,
+            marginTop: TILE_SIZE * 0.104166667,
             display: 'flex',
             alignItems: 'center',
         }}>
+            <ReactAudioPlayer />
             <button style={{
                 color: 'white',
-                fontSize: 25,
-                marginLeft: 10,
+                fontSize: TILE_SIZE * 0.520833333,
+                marginLeft: TILE_SIZE * 0.208333333,
                 background: 'transparent',
                 border: 'none',
                 cursor: 'pointer'
