@@ -27,6 +27,7 @@ export interface ICanvasMoviment {
 
 export interface ICanvasContext {
     canvas: canvasArray;
+    heroPosition: IPosition;
     setCanvas: (
         direction: EDirection,
         currentPosition: IPosition,

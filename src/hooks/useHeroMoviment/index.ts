@@ -7,7 +7,7 @@ import { ChestsContext } from "../../contexts/chests";
 import { GameStatusContext } from "../../contexts/gameStatus";
 import { EDirection, EWalker } from "../../settings/constants";
 
-function useHeroMoviment(initialPosition: IPosition) {
+function useHeroMoviment(initialPosition: IPosition, walker: EWalker) {
     const { setCanvas } = useContext(CanvasContext);
     const { setIsWinner, setIsDead } = useContext(GameStatusContext);
     const { setOpenedChests, openedChests, totalChests } = useContext(ChestsContext)
@@ -15,9 +15,9 @@ function useHeroMoviment(initialPosition: IPosition) {
     const [position, setPosition] = useState<IPosition>(initialPosition)
     const [direction, setDirection] = useState<EDirection>(EDirection.right)
 
-    useEventListener('keyup', moveHero)
+    useEventListener('keyup', move)
 
-    function moveHero(event: KeyboardEvent) {
+    function move(event: KeyboardEvent) {
         var pressedKey: EDirection = event.key as EDirection
 
         const similarKeys = {

@@ -12,7 +12,7 @@ function GameStatus() {
         setTimeout(() => {
             alert(message);
             reload();
-        })
+        }, 180)
     }
 
     if (dead) {resetGame(`Você perdeu!`)}

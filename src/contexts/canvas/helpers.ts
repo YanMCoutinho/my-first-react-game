@@ -22,20 +22,20 @@ function getInitialCanvas(): canvasArray {
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
 
         [WL, FL, TR, FL, FL,   FL, FL, CH, FL, FL,   FL, FL, FL, FL, FL,   MD, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+        [WL, FL, FL, FL, FL,   FL, TR, FL, FL, FL,   FL, FL, TR, FL, FL,   TR, FL, FL, FL, WL],
         [WL, FL, FL, FL, FL,   FL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, MD, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+        [WL, FL, FL, FL, FL,   FL, FL, TR, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
 
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, DE,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+        [WL, FL, FL, FL, FL,   FL, FL, TR, FL, DE,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, MD, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, CH, FL, FL, WL],
+        [WL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   TR, CH, FL, FL, WL],
 
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, TR,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, HE, WL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+        [WL, FL, FL, FL, TR,   FL, FL, FL, FL, FL,   FL, FL, FL, TR, FL,   FL, FL, FL, FL, WL],
+        [WL, HE, WL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, TR, FL, FL, WL],
         [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
         [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL], 
     ];

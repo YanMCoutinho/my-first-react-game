@@ -10,17 +10,17 @@ export const GameStatusContext = createContext<IGameStatusContext>({
 })
 
 export default function GameStatusProvider(props: PropsWithChildren<{}>) {
-    const [chestsState, setChestsState] = useState<IGameStatusContext>({
+    const [gameState, setGameState] = useState<IGameStatusContext>({
         dead: false,
         setIsDead: () => {
-            setChestsState(prevState => ({...prevState, dead: true}))
+            setGameState(prevState => ({...prevState, dead: true}))
         },
 
         winner: false,
         setIsWinner: () => {
-            setChestsState(prevState => ({...prevState, winner: true}))
+            setGameState(prevState => ({...prevState, winner: true}))
         },
     });
 
-    return <GameStatusContext.Provider value={chestsState}>{props.children}</GameStatusContext.Provider>
+    return <GameStatusContext.Provider value={gameState}>{props.children}</GameStatusContext.Provider>
 }
