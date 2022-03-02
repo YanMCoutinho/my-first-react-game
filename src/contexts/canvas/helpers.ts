@@ -1,4 +1,4 @@
-import { EDirection, EWalker } from "../../settings/constants"
+import { EDirection, EWalker, qtTiles } from "../../settings/constants"
 import { canvasArray, ECanvas, ICanvasMap, IConsequences, IPosition, IWalker } from "./types";
 
 export const initialCanvas = getInitialCanvas();
@@ -14,31 +14,47 @@ function getInitialCanvas(): canvasArray {
         hero: HE,
     } = ECanvas;
 
-    return [
-        [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, DR, DR,   WL, WL, WL, WL, WL],
-        [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, DR, DR,   WL, WL, WL, WL, WL],
-        [WL, FL, FL, WL, FL,   FL, FL, FL, WL, FL,   FL, FL, FL, FL, FL,   FL, WL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+    if (qtTiles === 20) {
+        return [
+            [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, DR, DR,   WL, WL, WL, WL, WL],
+            [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, DR, DR,   WL, WL, WL, WL, WL],
+            [WL, FL, FL, WL, FL,   FL, FL, FL, WL, FL,   FL, FL, FL, FL, FL,   FL, WL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
 
-        [WL, FL, TR, FL, FL,   FL, FL, CH, FL, FL,   FL, FL, FL, FL, FL,   MD, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, TR, FL, FL, FL,   FL, FL, TR, FL, FL,   TR, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, TR, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, TR, FL, FL,   FL, FL, CH, FL, FL,   FL, FL, FL, FL, FL,   MD, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, TR, FL, FL, FL,   FL, FL, TR, FL, FL,   TR, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, TR, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
 
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, TR, FL, MD,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   TR, CH, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, TR, FL, MD,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, TR, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   TR, CH, FL, FL, WL],
 
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, FL, FL, FL, TR,   FL, FL, FL, FL, FL,   FL, FL, FL, TR, FL,   FL, FL, FL, FL, WL],
-        [WL, HE, WL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, TR, FL, FL, WL],
-        [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
-        [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL], 
-    ];
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, TR,   FL, FL, FL, FL, FL,   FL, FL, FL, TR, FL,   FL, FL, FL, FL, WL],
+            [WL, HE, WL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, TR, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL], 
+        ]; 
+    } else {
+        return [
+            [WL, WL, WL, DR, DR,   WL, WL, WL, WL, WL],
+            [WL, WL, WL, DR, DR,   WL, WL, WL, WL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   TR, FL, MD, FL, WL],
+            [WL, FL, FL, TR, FL,   FL, FL, FL, FL, WL],
+
+            [WL, FL, CH, FL, FL,   FL, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, CH, FL, WL],
+            [WL, HE, FL, TR, FL,   TR, FL, FL, FL, WL],
+            [WL, FL, FL, FL, FL,   FL, FL, TR, FL, WL],
+            [WL, WL, WL, WL, WL,   WL, WL, WL, WL, WL], 
+        ];
+    }
 }
 
 export const initialCanvasMap = getCanvasMap(initialCanvas);
@@ -98,6 +114,10 @@ export function checkNextMoveIsValid (
 export function getHeroValidMove(position: ECanvas) {
     const  { wall, door, trap, chest, miniDemon, demon } = ECanvas;
     
+    console.log('morreu?')
+    console.log([ trap, miniDemon, demon ].includes(position))
+    console.log(position)
+
     return {
         valid: ![ wall, door ].includes(position),
         dead: [ trap, miniDemon, demon ].includes(position),

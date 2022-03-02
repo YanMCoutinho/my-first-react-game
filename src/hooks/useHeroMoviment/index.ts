@@ -20,12 +20,15 @@ function useHeroMoviment(initialPosition: IPosition, walker: EWalker) {
     function move(event: KeyboardEvent) {
         var pressedKey: EDirection = event.key as EDirection
 
+        console.log(event)
+
         const similarKeys = {
             'w': EDirection.up,
             'd': EDirection.right,
             's': EDirection.down,
             'a': EDirection.left
         }
+
 
         if (similarKeys[pressedKey]) {
             pressedKey = similarKeys[pressedKey]
@@ -38,7 +41,6 @@ function useHeroMoviment(initialPosition: IPosition, walker: EWalker) {
         setPosition(movement.position)
         handleNextDirection(pressedKey, setDirection)
 
-        
         if (movement.consequences.dead) {setIsDead()}   
         if (movement.consequences.chest) {setOpenedChests(movement.position)}   
         if (totalChests === openedChests.total && movement.consequences.door ) {

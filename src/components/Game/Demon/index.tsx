@@ -13,14 +13,14 @@ const demon = keyframes`
     }
 
     to {
-        background-position-x: -${TILE_SIZE * 4}px;
+        background-position-x: -${TILE_SIZE * 8}px;
     }
 `;
 
 const DemonWithAnimation = styled.div`
     background-image: url('./assets/DEMON.png');
     background-repeat: no-repeat;
-    background-size: ${TILE_SIZE * 4}px ${TILE_SIZE * 2}px;
+    background-size: ${TILE_SIZE * 8}px ${TILE_SIZE * 2}px;
     animation: ${demon} 1.1s steps(4) infinite;
 `
 

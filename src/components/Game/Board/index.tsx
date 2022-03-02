@@ -4,7 +4,7 @@ import Hero from '../Hero';
 import Chest from '../Chest';
 import MiniDemon from '../MiniDemon';
 import Trap from '../Trap';
-import { GAME_SIZE } from '../../../settings/constants';
+import { GAME_SIZE, qtTiles } from '../../../settings/constants';
 import { canvasArray, ECanvas } from '../../../contexts/canvas/types';
 import { initialCanvasMap } from '../../../contexts/canvas/helpers';
 import Door from './Door';
@@ -36,7 +36,7 @@ const Board = (props: PropsWithChildren<IProps>) => {
                 }
     
                 if (tile === ECanvas.chest) {
-                    return (<Chest key={key} position={position} />)
+                    return (<Chest animation={false} key={key} position={position} />)
                 }
     
                 if (tile === ECanvas.hero) {
@@ -55,7 +55,7 @@ const Board = (props: PropsWithChildren<IProps>) => {
     return (
         
         <div>
-            <img src='./assets/tileset.gif' alt='map' width={GAME_SIZE} height={GAME_SIZE} style={{
+            <img src={`./assets/${qtTiles === 20 ? 'big-tileset' : 'tiny-tileset'}.gif`} alt='map' width={GAME_SIZE} height={GAME_SIZE} style={{
                 borderImageRepeat: 'stretch',
             }} />
             

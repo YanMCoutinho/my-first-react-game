@@ -5,6 +5,7 @@ import Game from './Game';
 import CanvasProvider from '../contexts/canvas';
 import ChestsProvider from '../contexts/chests';
 import GameStatusProvider from '../contexts/gameStatus';
+import Keyboard from './Keyboard';
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
         <CanvasProvider>
           <ChestsProvider>
             <GameStatusProvider>
-              <Game />
+              <Keyboard>
+                <Game />
+              </Keyboard>
             </GameStatusProvider>
           </ChestsProvider>
         </CanvasProvider>
