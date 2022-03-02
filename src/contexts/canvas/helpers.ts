@@ -113,10 +113,6 @@ export function checkNextMoveIsValid (
 
 export function getHeroValidMove(position: ECanvas) {
     const  { wall, door, trap, chest, miniDemon, demon } = ECanvas;
-    
-    console.log('morreu?')
-    console.log([ trap, miniDemon, demon ].includes(position))
-    console.log(position)
 
     return {
         valid: ![ wall, door ].includes(position),

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import ReactAudioPlayer from "react-audio-player";
 import { GameStatusContext } from "../../../../contexts/gameStatus";
 import { TILE_SIZE } from "../../../../settings/constants";
 
@@ -29,7 +28,6 @@ function GameStatus() {
             display: 'flex',
             alignItems: 'center',
         }}>
-            <ReactAudioPlayer />
             <button style={{
                 color: 'white',
                 fontSize: TILE_SIZE * 0.520833333,

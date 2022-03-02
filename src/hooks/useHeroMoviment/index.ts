@@ -20,8 +20,6 @@ function useHeroMoviment(initialPosition: IPosition, walker: EWalker) {
     function move(event: KeyboardEvent) {
         var pressedKey: EDirection = event.key as EDirection
 
-        console.log(event)
-
         const similarKeys = {
             'w': EDirection.up,
             'd': EDirection.right,
