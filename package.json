@@ -1,6 +1,6 @@
 {
-  "name": "teste",
-  "version": "0.1.0",
+  "name": "treasure-hunt",
+  "version": "0.1.1",
   "homepage": "./",
   "private": true,
   "dependencies": {

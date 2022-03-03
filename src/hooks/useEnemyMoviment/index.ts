@@ -94,13 +94,13 @@ function catchHero(position: IPosition, heroPosition: IPosition): EDirection[] {
     if (Math.abs(x) > Math.abs(y)) {
         result.push(x1)
         result.push(y1)
-        result.push(x2)
         result.push(y2)
+        result.push(x2)
     } else {
         result.push(y1)
         result.push(x1)
-        result.push(y2)
         result.push(x2)
+        result.push(y2)
     }
 
     return result;
